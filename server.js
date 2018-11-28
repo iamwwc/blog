@@ -1,7 +1,6 @@
 const express = require('express')
 const server = express()
 const fs = require('fs')
-const readFileAsync = require('util').promisify(fs.readFile)
 const resolve = file => require('path').resolve(__dirname, file)
 const { createBundleRenderer } = require('vue-server-renderer')
 const isProd = process.env.NODE_ENV === 'production'
@@ -32,6 +31,7 @@ if(isProd){
         }
     )
 }
+
 
 const serve = (path, cache) =>  express.static(resolve(path),{
     maxAge: cache && isProd ? 1000 * 60 * 60 * 24 *30 : 0

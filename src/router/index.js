@@ -11,7 +11,7 @@ export function createRouter() {
             name: 'index',
             path: '/',
             component: () => import('../components/Index.vue')
-        }, {
+        },{
             name: 'post',
             path: '/post/:path',
             component: createView('Post')

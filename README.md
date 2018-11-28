@@ -1,5 +1,3 @@
-### modify from Vue hack news 2.0
+### 使用VUe, SSR, 编写的博客
 
-use webpack 3 as template
-
-In webpack4 branch, use webpack 4 and @babel/core 7
+正在编写，现在数据提取已经完成，下面开始编写组件

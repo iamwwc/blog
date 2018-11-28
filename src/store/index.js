@@ -10,6 +10,7 @@ export function createStore () {
     return new Vuex.Store({
         state: {
             post:Object,
+            tag: Object,
             items:[],
             tags:[]
         },

@@ -1,8 +1,6 @@
-import path from 'path'
-
-const resolve = (...dir) => path.resolve(...dir)
-
-export default {
+const resolve = (...dir) => require('path').resolve(...dir)
+const pluginsDir = resolve('./plugins')
+module.exports = {
     serverPort: 5000,
     serverListenAddr: '127.0.0.1',
     serverApiPath: '/api/blog',
@@ -12,13 +10,10 @@ export default {
     mongoDBHost: "127.0.0.1",
     mongoDBPort: 27017,
     mongoDBName: 'blog',
-
     postsCollectionName: 'posts',
-    tagsCollectionName: 'tags',
-
     logLevel: 'debug',
 
-    pluginsDir: resolve(__dirname, '../plugins'),
+    pluginsDir: pluginsDir,
 
     sourceDir: 'D:\\Blogs\\dbsources',
 

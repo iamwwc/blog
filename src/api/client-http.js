@@ -1,18 +1,18 @@
 import config from '~/config/api-server'
 
-function fetch(url){
+function fetch(url) {
     let xhr
     try {
         xhr = new XMLHttpRequest()
     } catch (error) {
         console.log(error)
     }
-    xhr.open('GET',url,true)
+    xhr.open('GET', url, true)
     xhr.send(null)
-    return new Promise((resolve,reject) => {
+    return new Promise((resolve, reject) => {
         xhr.onreadystatechange(() => {
-            if(xhr.readyState !== 4) return
-            if(xhr.status !== 200){
+            if (xhr.readyState !== 4) return
+            if (xhr.status !== 200) {
                 return reject(`server response with status code ${xhr.status}`)
             }
             resolve(xhr.responseText)
@@ -20,13 +20,13 @@ function fetch(url){
     })
 }
 
-export function get(params){
-    let queryString = Object.keys(params).reduce((prev,curr,currIndex,src) => {
-        let encoded = encodeURIComponent(params[curr])
+export function get(params) {
+    let queryString = Object.keys(params).reduce((prev, curr, currIndex, src) => {
+        let encoded = encodeURIComponent(JSON.parse(params[curr]))
         prev = prev + `${curr}=${encoded}`
-        currIndex === src.length - 1 ? prev : prev +='&'
+        currIndex === src.length - 1 ? prev : prev += '&'
         return prev
-    },``)
+    }, ``)
     let target = `${config.serverApiPath}?${queryString}`
     return fetch(target)
 }

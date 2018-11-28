@@ -6,6 +6,10 @@ const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
 
 module.exports = merge(base, {
   target: 'node',
+  node:{
+    __dirname:false,
+    __filename:false
+  },
   devtool: '#source-map',
   entry: './src/entry-server.js',
   mode: process.env.NODE_ENV === 'production' ? 'production':'development',

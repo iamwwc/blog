@@ -1,11 +1,14 @@
 import { createApp } from './app'
-import { api } from './api/api'
-let isInited = false
+import config from '~/config/api-server'
+import defaultConfig from '~/config/api-server-default'
+import apiServer from 'post-api-server'
+
 
 const isDev = process.env.NODE_ENV !== 'production'
 export default context => {
+    
 
-    let promiseRender = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         const { app, router, store } = createApp()
         const { url } = context
         const { fullPath } = router.resolve(url).route
@@ -30,5 +33,13 @@ export default context => {
         }, reject)
     })
 
-    return Promise.all([promiseRender])
+    // 我可算是知道为什么返回数组了
+    // 因为我当时写成
+    /**
+     * return Promise.all([promiseRender])
+     * 想着和之前的 server.init() 一起初始化之后再返回
+     * 
+     * 但这样将一个原本返回Vue实例的then resolve(app)强行转换成了数组
+     * 
+     */
 }

@@ -1,5 +1,5 @@
-import fetch from 'create-api'
+import {default as get} from 'create-api'
 
-export function api(query) {
-    return get(query)
+export function fetch(queries) {
+    return get(queries)
 }

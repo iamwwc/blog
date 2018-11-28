@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <div class="author-name">{{ vm.$site.author}}</div>
-    <div class="side-desc">{{vm.$site.desc}}</div>
+    <div class="author-name">{{ $site.author}}</div>
+    <div class="site-desc">{{ $site.description }}</div>
   </div>
 </template>
 
