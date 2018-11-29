@@ -1,5 +1,5 @@
 export default {
-    post(state){
-        return state.post 
+    post(state) {
+        return state.post
     }
 }

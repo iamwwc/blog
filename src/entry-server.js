@@ -1,13 +1,8 @@
 import { createApp } from './app'
-import config from '~/config/api-server'
-import defaultConfig from '~/config/api-server-default'
-import apiServer from 'post-api-server'
-
 
 const isDev = process.env.NODE_ENV !== 'production'
 export default context => {
     
-
     return new Promise((resolve, reject) => {
         const { app, router, store } = createApp()
         const { url } = context

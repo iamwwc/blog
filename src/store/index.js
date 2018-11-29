@@ -6,17 +6,17 @@ import mutations from './mutations'
 
 Vue.use(Vuex)
 
-export function createStore () {
+export function createStore() {
     return new Vuex.Store({
         state: {
-            post:Object,
+            post: Object,
             tag: Object,
-            items:[],
-            tags:[]
+            items: [],
+            tags: []
         },
         actions,
         getters,
         mutations,
-        strict:true
+        strict: true
     })
 }

@@ -1,23 +1,23 @@
 <template>
-    <div class="app">
+    <div id="app">
         <Header></Header>
-        <router-view></router-view>
+        <div class="container">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
 <script>
-import Header from './Header'
-
+import Header from "./Header";
 
 export default {
-    components:{
+    components: {
         Header
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>
 
 

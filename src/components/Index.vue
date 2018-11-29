@@ -1,40 +1,64 @@
 <template>
-  <div id="app">
-  </div>
+    <div class="posts">
+        <div class="post" v-for="item in items" :key="item.path">
+            <div class="post-title">{{item.title}}</div>
+
+        </div>
+    </div>
 </template>
 
 <script>
-import Header from './Header.vue'
+import Header from "./Header.vue";
+import { mapState } from "vuex";
 
 export default {
-    asyncData({store, route:{params:{id}}}){
-        let perPage = store.$site.perPage
-        let number = store.$site.number
-        store.dispatch('FETCH_ITEMS',{
-            filter:{
-
-            },
-            options:{
-                skip:number - 1,
-                limit: perPage,
-                sort:{
-                    originDate: -1
-                }
-            }
-        })
-    },
-    components:{
+    asyncData: preFetch,
+    components: {
         Header
     },
-    data () {
-        return {
-
-        }
+    computed: {
+        ...mapState(["items"])
     },
-    created () {
-        let a
+    data() {
+        return {};
+    },
+    created() {
+        let a;
+    },
+    watch:{
+        '$route'(to, from){
+            let pageNum = to.query
+        }
     }
 };
+
+function preFetch({
+    store,
+    route: {
+        query:{
+            page
+        }
+    }
+}) {
+    if (typeof query === 'undefined'){
+        // from index
+        page = 0
+    }
+    let perPage = store.$site.perPage;
+    let shouldSkip = perPage * page
+    // 这里需要return，很简单的道理，entry-server需要预取，返回promise才会等到查询完成之后注入store
+    // 因为没有return，直接导致return了undefined，所有没有等到查询数据库完成就输出了html
+    return store.dispatch("FETCH_ITEMS", {
+        filter: {},
+        options: {
+            skip: shouldSkip,
+            limit: perPage,
+            sort: {
+                originDate: -1
+            }
+        }
+    });
+}
 </script>
 
 <style lang="scss" scoped>

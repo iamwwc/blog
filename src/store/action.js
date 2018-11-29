@@ -41,7 +41,7 @@ export default {
         })
     },
     FETCH_ITEMS({ commit }, { filter, options}) {
-        fetch({
+        return fetch({
             filter,
             options
         }).then(({ status, result, detail }) => {
