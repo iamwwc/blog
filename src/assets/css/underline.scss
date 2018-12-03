@@ -1,0 +1,35 @@
+@mixin underline {
+    & {
+        position: relative;
+        text-decoration: none;
+        &::before {
+            height: 3px;
+            width: 0;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            content: "";
+            background-color: $underline-color;
+            transition: left 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        &::after {
+            height: 3px;
+            width: 0;
+            position: absolute;
+            right: 50%;
+            bottom: 0;
+            content: "";
+            background-color: $underline-color;
+            transition: right 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        &:hover {
+            &::before {
+                left: 0;
+            }
+            &::after{
+                right: 0;
+            }
+        }
+    }
+}

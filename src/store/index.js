@@ -12,7 +12,7 @@ export function createStore() {
             post: Object,
             tag: Object,
             items: [],
-            tags: []
+            tags: {}
         },
         actions,
         getters,

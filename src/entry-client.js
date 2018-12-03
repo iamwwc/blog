@@ -2,7 +2,13 @@ import Vue from 'vue'
 import { createApp } from './app'
 
 Vue.mixin({
+    // 因为凡是调用了beforeRouterUpdate,next必须调用
+    // 留着空函数也不行，都要一块注释掉
+
     beforeRouteUpdate(to, from, next) {
+        if(to.fullPath.startsWith('/archive')){
+            return next()
+        }
         const { asyncData } = this.$options
         if (asyncData) {
             asyncData({

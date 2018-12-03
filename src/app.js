@@ -16,6 +16,6 @@ export function createApp() {
         render: h => h(App)
     })
 
-    Object.getPrototypeOf(store).$site = siteConfig.site
+    Object.getPrototypeOf(store).$vue = app
     return { app, router, store }
 }

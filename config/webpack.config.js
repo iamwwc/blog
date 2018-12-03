@@ -1,10 +1,12 @@
 module.exports = {
     dev:{
         proxyTable:{
-            '/api':{
-                target:`127.0.0.1:5000/api/blog`,
+            '/api/':{
+                target:`http://localhost:5000`,
                 changeOrigin:true
             }
         }
+    },
+    build:{
     }
 }

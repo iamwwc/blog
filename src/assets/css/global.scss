@@ -1,0 +1,35 @@
+pre{
+    overflow: auto;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+html {
+    font-size: 18px;
+}
+
+li {
+    list-style: none;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+ul{
+    overflow: auto;
+}
+
+$originFontSize:30px;
+@for $i from 1 through 6 {
+    h#{$i}{
+        font-size: $originFontSize;
+    }
+
+    $originFontSize : $originFontSize - 3px;
+}

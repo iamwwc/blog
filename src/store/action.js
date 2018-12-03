@@ -3,25 +3,14 @@ import { fetch } from '~/src/api/api'
 const error = str => console.error(str)
 
 export default {
-    FETCH_POST: ({ commit }, { path }) => {
+    FETCH_POST: ({ commit }, { filter, options }) => {
         return fetch({
-            filter: {
-                path: path
-            },
-            options: {
-
-            }
-        }).then(dbResult => {
-            if (dbResult.status !== 'success') {
-                reportError({
-                    type: 'post',
-                    name: path,
-                    detail: dbResult.detail
-                })
-                commit('SET_POST', { post: {} })
-                return
-            }
-            commit('SET_POST', { post: dbResult.result })
+            filter,
+            options
+        }).then(result => {
+            if (Array.isArray(result))
+                result = result[0]
+            commit('SET_POST', result)
         })
     },
     FETCH_TAG: ({ commit }, { name }) => {
@@ -32,25 +21,21 @@ export default {
             options: {
 
             }
-        }).then(({ status, detail, result }) => {
-            status === 'success'
-                ?
-                commit('SET_TAGS', { result })
-                :
-                error(detail)
+        }).then(result => {
+            commit('SET_TAGS', result)
         })
     },
-    FETCH_ITEMS({ commit }, { filter, options}) {
+    FETCH_ITEMS({ commit }, { filter, options }) {
         return fetch({
             filter,
             options
-        }).then(({ status, result, detail }) => {
-            status === 'failed'
-            ?
-            error(`fetch items failed -> ${detail}`)
-            :
-            ''
+        }).then(result => {
             commit('SET_ITEMS', result)
+        })
+    },
+    FETCH_ALL_TAGS({ commit }, query) {
+        return fetch(query).then(result => {
+            commit('SET_TAGS', result)
         })
     }
 }

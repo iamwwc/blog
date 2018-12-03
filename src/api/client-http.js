@@ -10,19 +10,20 @@ function fetch(url) {
     xhr.open('GET', url, true)
     xhr.send(null)
     return new Promise((resolve, reject) => {
-        xhr.onreadystatechange(() => {
+        xhr.onreadystatechange = () => {
             if (xhr.readyState !== 4) return
             if (xhr.status !== 200) {
                 return reject(`server response with status code ${xhr.status}`)
             }
-            resolve(xhr.responseText)
-        })
+            let res = JSON.parse(xhr.responseText)
+            resolve(res)
+        }
     })
 }
 
 export function get(params) {
     let queryString = Object.keys(params).reduce((prev, curr, currIndex, src) => {
-        let encoded = encodeURIComponent(JSON.parse(params[curr]))
+        let encoded = encodeURIComponent(JSON.stringify(params[curr]))
         prev = prev + `${curr}=${encoded}`
         currIndex === src.length - 1 ? prev : prev += '&'
         return prev

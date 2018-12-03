@@ -3,6 +3,30 @@ module.exports = {
     site:{
         author:'wwc',
         description:'test-description',
-        perPage: 10
+        email:'qaq1362211689@gmail.com',
+        perPage: 10,
+        menus:{
+            archive:'/archive'
+        },
+        social:[
+            {
+                name:'weibo',
+                url:'weibo.cn'
+            },
+            {
+                name: 'github',
+                url:'github.com'
+            }
+        ],
+        toc:{
+            enable:true,
+        },
+        comments:{
+            disqus:{
+                enable:false,
+                shortname:'chaochaogege',
+                count:true
+            }
+        }
     }
 }

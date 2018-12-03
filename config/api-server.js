@@ -11,7 +11,7 @@ module.exports = {
     mongoDBPort: 27017,
     mongoDBName: 'blog',
     postsCollectionName: 'posts',
-    logLevel: 'debug',
+    logLevel: 'info',
 
     pluginsDir: pluginsDir,
 

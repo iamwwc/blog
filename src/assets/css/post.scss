@@ -1,0 +1,29 @@
+@import './variables.scss';
+@import './underline.scss';
+.post {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+    .title {
+        @include underline();
+        font-size: 30px;
+        font-weight: 600;
+        color: $post-title-color;
+        cursor: default;
+        &:hover {
+            cursor: default;
+            color: $post-title-hover-color;
+            transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+    }
+    .meta {
+        .date {
+            display: inline-block;
+            font-size: 13px;
+            font-style: italic;
+        }
+    }
+}
