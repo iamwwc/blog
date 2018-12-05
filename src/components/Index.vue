@@ -58,6 +58,7 @@ function preFetch({
                 originDate: -1
             },
             projection: {
+                _id:0,
                 title: 1,
                 path: 1,
                 excerpt: 1,

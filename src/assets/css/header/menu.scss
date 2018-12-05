@@ -1,0 +1,15 @@
+.menus {
+    font-size: 18px;
+    @include max-screen() {
+        flex-direction: column;
+    }
+    .menu {
+        margin-right: 10px;
+        text-decoration: none;
+        color: #c1b8b8;
+        transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        &:hover {
+            color: $a-hover-color;
+        }
+    }
+}

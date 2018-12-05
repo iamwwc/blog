@@ -1,10 +1,12 @@
-@mixin min-screen ($len) {
-    @media screen and (min-width: $len) {
+@import './variables.scss';
+
+@mixin min-screen () {
+    @media screen and (min-width: $split) {
         @content;
     }
 }
-@mixin max-screen($len) {
-    @media screen and (max-width: $len) {
+@mixin max-screen() {
+    @media screen and (max-width: $split) {
         @content;
     }
 }

@@ -6,7 +6,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 const VueLoaderConfig = require('./vue-loader.config')
 const isProd = process.env.NODE_ENV === 'production'
 const resolve = (...dir) => path.resolve(...dir)
-const {readFileSync} = require('fs')
+const { readFileSync } = require('fs')
 
 
 module.exports = {
@@ -60,6 +60,13 @@ module.exports = {
                             path.resolve(__dirname, '../src/assets/css/'),
                         ]
                     }
+                }]
+            }, {
+                test: /\.css$/,
+                use: [{
+                    loader: 'vue-style-loader'
+                }, {
+                    loader: 'css-loader'
                 }]
             },
             {

@@ -6,7 +6,8 @@ module.exports = {
         email:'qaq1362211689@gmail.com',
         perPage: 10,
         menus:{
-            archive:'/archive'
+            Archive:'/archive',
+            About:'/about',
         },
         social:[
             {

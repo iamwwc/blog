@@ -21,7 +21,8 @@
                     </router-link>
 
                     <router-link v-if="nextPost"
-                                 :to="{name: 'post',params:{path:nextPost.path}}">
+                                 :to="{name: 'post',params:{path:nextPost.path}}"
+                                 class="next-post">
                         {{nextPost.title}}
                     </router-link>
                 </div>
@@ -102,4 +103,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import '@/assets/css/post.scss';
 </style>

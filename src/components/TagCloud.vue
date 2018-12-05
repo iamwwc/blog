@@ -1,8 +1,8 @@
 <template>
-    <div class="tag-cloud">
+    <div class="tag-view">
         <div class="post"
              v-for="post in posts"
-             :key="post.UniqueVForKey">
+             :key="post.vForID">
             <div class="meta">
                 <div class="date">{{post.originDate}}</div>
             </div>
@@ -18,9 +18,6 @@ export default {
     computed: {},
     props: ["posts"],
     mounted() {
-        if(typeof window.vForKey === 'undefined'){
-            window.vForKey = 1
-        }
     }
 };
 </script>

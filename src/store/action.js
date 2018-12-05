@@ -35,7 +35,7 @@ export default {
     },
     FETCH_ALL_TAGS({ commit }, query) {
         return fetch(query).then(result => {
-            commit('SET_TAGS', result)
+            commit('GROUP_TAGS_FROM_ARRAY_AND_SET_TAGS', result)
         })
     }
 }

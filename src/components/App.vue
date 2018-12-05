@@ -11,7 +11,6 @@
 <script>
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-
 export default {
     components: {
         Header,
@@ -24,12 +23,13 @@ export default {
 @import "@/assets/css/mixin.scss";
 @import "@/assets/css/variables.scss";
 @import "@/assets/css/global.scss";
+@import '@/assets/css/highlight.scss';
 
 .container {
     width: $split;
     height: 100%;
     margin: 0 auto;
-    @include max-screen($split) {
+    @include max-screen() {
         width: 100%;
         padding: 0 30px;
     }
