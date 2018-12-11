@@ -38,5 +38,13 @@
         .next-post{
             float: right;
         }
+        > a{
+            text-decoration: none;
+            color: $post-paginator-link-color;
+            transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            &:hover{
+                color: $a-hover-color;
+            }
+        }
     }
 }

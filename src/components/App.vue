@@ -11,6 +11,7 @@
 <script>
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import '@/assets/js/blog.js';
 export default {
     components: {
         Header,

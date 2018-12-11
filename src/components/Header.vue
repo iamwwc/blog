@@ -15,7 +15,7 @@
                          :to="item">{{key}}
             </router-link>
         </div>
-        <div class="menu-btn">
+        <div class="menu-btn" @click="menuBtnClick">
             <span></span>
             <span></span>
             <span></span>
@@ -27,21 +27,20 @@
 @import "@/assets/css/variables.scss";
 @import "@/assets/css/mixin.scss";
 .site-header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-    justify-content: space-around;
-    align-items: center;
     width: 100%;
     height: 90px;
     padding: 20px 20px;
-    margin-bottom: 90px;
+    margin-bottom: 100px;
     box-shadow: 1px 1px 1px #eee;
     background-color: #fff;
     .box-item {
         display: flex;
         flex-wrap: wrap;
+    }
+    &::after{
+        clear: both;
+        content: "";
+        display: block;
     }
     @import '@/assets/css/header/button.scss';
     @import '@/assets/css/header/author.scss';
@@ -55,6 +54,11 @@
 function fetch({ store }) {}
 
 export default {
-    components: {}
+    components: {},
+    methods:{
+        menuBtnClick(){
+            console.log(11)
+        }
+    }
 };
 </script>

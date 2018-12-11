@@ -1,7 +1,11 @@
 .menus {
+    float: right;
+    margin-left: auto;
     font-size: 18px;
     @include max-screen() {
-        flex-direction: column;
+        position: absolute;
+        right: 50px;
+        top: 100px;
     }
     .menu {
         margin-right: 10px;

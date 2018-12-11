@@ -2,7 +2,9 @@
     <div class="posts">
         <Post v-for="post in items" 
             :post="post" 
-            :key="post.path"/>
+            :key="post.path">
+        <hr>
+        </Post>
     </div>
 </template>
 

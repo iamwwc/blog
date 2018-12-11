@@ -88,12 +88,14 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/css/variables.scss";
+@import "@/assets/css/mixins/circle.scss";
 .tag-cloud {
     .tag-links {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         flex-shrink: 1;
+        margin-bottom: 50px;
         .tag-link {
             border-radius: 18px;
             background-color: $tag-link-bg-color;
@@ -109,8 +111,6 @@ export default {
                 background-color: $tag-link-active-color;
             }
         }
-    }
-    .tag-view {
     }
 }
 </style>

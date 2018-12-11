@@ -1,0 +1,11 @@
+@mixin circle {
+    &::before{
+        position: absolute;
+        content: "";
+        background-color: #fff;
+        border-radius: 50%;
+        width: 11px;
+        height: 11px;
+        border: 3px solid #49b1f5;
+    }
+}

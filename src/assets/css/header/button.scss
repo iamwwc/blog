@@ -1,15 +1,22 @@
+@import '@/assets/css/mixin.scss';
+
 .menu-btn{
+    @include max-screen(){
+        display: flex;
+    }
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-evenly;
-    right: 0;
-    width: 20px;
-    height: 20px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: transparent;
     span{
         height: 3px;
         width: 100%;
+        background-color: #c05b4d;
+        margin-bottom: 2px;
     }
 }

@@ -24,6 +24,7 @@
     "es6-promise": "^4.1.1",
     "express": "^4.16.2",
     "firebase": "4.6.2",
+    "jquery": "^3.3.1",
     "lru-cache": "^4.1.1",
     "post-api-server": "file:../VUESSRServer",
     "route-cache": "0.4.3",
