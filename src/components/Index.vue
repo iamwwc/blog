@@ -3,6 +3,7 @@
         <Post v-for="post in items" 
             :post="post" 
             :key="post.path">
+            <!-- <hr class="post-footer"> -->
         <hr>
         </Post>
     </div>

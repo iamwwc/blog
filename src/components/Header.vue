@@ -15,10 +15,10 @@
                          :to="item">{{key}}
             </router-link>
         </div>
-        <div class="menu-btn" @click="menuBtnClick">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="menu-btn">
+            <span class="btn-item"></span>
+            <span class="btn-item"></span>
+            <span class="btn-item"></span>
         </div>
     </div>
 </template>
@@ -37,28 +37,26 @@
         display: flex;
         flex-wrap: wrap;
     }
-    &::after{
+    &::after {
         clear: both;
         content: "";
         display: block;
     }
-    @import '@/assets/css/header/button.scss';
-    @import '@/assets/css/header/author.scss';
-    @import '@/assets/css/header/avatar.scss';
-    @import '@/assets/css/header/menu.scss';
+    @import "@/assets/css/header/button.scss";
+    @import "@/assets/css/header/author.scss";
+    @import "@/assets/css/header/avatar.scss";
+    @import "@/assets/css/header/menu.scss";
 }
 </style>
 
 
 <script>
+import debounce from "@/utils/debounce";
 function fetch({ store }) {}
 
 export default {
     components: {},
-    methods:{
-        menuBtnClick(){
-            console.log(11)
-        }
+    methods: {
     }
 };
 </script>

@@ -11,7 +11,15 @@
 <script>
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import '@/assets/js/blog.js';
+
+// import all codes for browser use
+// when bundle all browser codes, webpack config will
+// set VUE_ENV to client
+if(process.env.VUE_ENV === 'client'){
+    require('@/assets/js/blog.js')
+}
+
+
 export default {
     components: {
         Header,

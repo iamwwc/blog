@@ -38,6 +38,7 @@
                  class="comments">
             </div>
         </template>
+        <slot/>
     </div>
 </template>
 <script>

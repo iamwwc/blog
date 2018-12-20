@@ -1,15 +1,12 @@
-import config from '~/config/api-server'
-import defaultConfig from '~/config/api-server-default'
-import apiServer from 'post-api-server'
-
-const apiInstance = new apiServer(config, defaultConfig)
-
+import client, {postsCol,db } from './server-db-client'
 
 // ssr server 直接查询db
 // { filter, options}
-const promise = apiInstance.init()
+const promise = client.connect()
+let postsCollection
 export default function fetch(queries) {
     return promise.then(() => {
+        postsCollection = client.db(db).collection(postsCol)
         return new Promise(resolve => {
             return queryCustomize(queries).then(result => {
                 resolve(result)
@@ -26,11 +23,11 @@ export default function fetch(queries) {
 //browser发出的请求，路径还是被URI encode
 // 所以先 decode
 
-function queryCustomize({ filter, options }) {
+async function queryCustomize({ filter, options }) {
     filter = decodeQuery(filter ? filter : {})
     options = decodeQuery(options ? options : {})
     console.debug(`start query: filter: ${JSON.stringify(filter)} -> options: ${JSON.stringify(options)}`)
-    return apiInstance.mgController.query(filter, options)
+    return await postsCollection.find(filter, options).toArray()
 }
 
 // 对于post，browser发起一个被编码的path，全部解码

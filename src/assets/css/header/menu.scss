@@ -1,19 +1,34 @@
+@import '@/assets/css/mixin.scss';
+
 .menus {
     float: right;
     margin-left: auto;
     font-size: 18px;
+    display: none;
     @include max-screen() {
         position: absolute;
-        right: 50px;
-        top: 100px;
+        right: 30px;
+        top: 60px;
+        width: 100px;
+    }
+    @include min-screen(){
+        display: flex !important;
     }
     .menu {
         margin-right: 10px;
         text-decoration: none;
         color: #c1b8b8;
         transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        padding: 5px 5px 5px 10px;
         &:hover {
             color: $a-hover-color;
         }
+        @include max-screen() {
+            width: 100px;
+        }
     }
+}
+
+.opened{
+    display: flex;
 }

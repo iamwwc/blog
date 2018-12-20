@@ -1,3 +1,10 @@
 .author {
     float: left;
+    padding: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    color: #59595a;
+    &:hover{
+        color: rgb(34, 122, 194);
+    }
 }
