@@ -5,6 +5,7 @@ const SWPrecachePlugin = require('sw-precache-webpack-plugin')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 const VueConfig = require('./vue-loader.config')
 const utils = require('./utils')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const config = merge(base, {
     entry: {
@@ -43,7 +44,7 @@ const config = merge(base, {
                     reuseExistingChunk: true
                 }
             }
-        }
+        },
     },
     plugins: [
         // strip dev-only code in Vue source

@@ -8,3 +8,5 @@ const postsCol = config.postsCollectionName
 const db = config.mongoDBName
 export { _client as default, postsCol, db }
 
+// 决定不在这里直接查数据库，打算将redis和 server-api放到一起
+//

@@ -6,7 +6,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 const VueLoaderConfig = require('./vue-loader.config')
 const isProd = process.env.NODE_ENV === 'production'
 const resolve = (...dir) => path.resolve(...dir)
-const { readFileSync } = require('fs')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 
 module.exports = {
@@ -25,6 +25,17 @@ module.exports = {
             '@': resolve(__dirname, '..', 'src')
         },
         extensions: ['.js', '.vue']
+    },
+    optimization:{
+        minimizer:[
+            new UglifyJsPlugin({
+                sourceMap: !isProd,
+                uglifyOptions:{
+                    compress:true,
+                    warnings: false
+                }
+            })
+        ]
     },
     module: {
         noParse: /es6-promise\.js$/, // avoid webpack shimming process
@@ -97,9 +108,9 @@ module.exports = {
     plugins: isProd
         ? [
             new VueLoaderPlugin(),
-            new webpack.optimize.UglifyJsPlugin({
-                compress: { warnings: false }
-            }),
+            // new webpack.optimize.UglifyJsPlugin({
+            //     compress: { warnings: false }
+            // }),
             new webpack.optimize.ModuleConcatenationPlugin(),
             new ExtractTextPlugin({
                 filename: 'common.[chunkhash].css'
