@@ -12,11 +12,6 @@ module.exports = {
     mongoDBName: 'blog',
     postsCollectionName: 'posts',
     logLevel: 'info',
-
-    pluginsDir: pluginsDir,
-
-    sourceDir: 'D:\\Blogs\\dbsources',
-
 }
 
 // export interface Config {
