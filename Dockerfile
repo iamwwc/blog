@@ -5,8 +5,7 @@ COPY . /root/blog
 WORKDIR /root/blog
 
 RUN npm install ;\
-    npm run build;\
-    rm -rf ./node_modules/ plugins/ src/
+    npm run build;
 
 FROM node:10.14.2-alpine
 LABEL maintainer="iamwwc<qaq1362211689@gmail.com>"

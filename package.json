@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node server",
     "start": "./node_modules/.bin/cross-env NODE_ENV=production node server",
+    "entry":"./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack --config build/webpack.entry.config.js --progress",
     "build": "./node_modules/.bin/rimraf dist && npm run build:client && npm run build:server",
     "build:client": "./node_modules/.bin/cross-env NODE_ENV=production .\\node_modules\\.bin\\webpack --config build/webpack.client.config.js --progress --hide-modules",
     "build:server": "./node_modules/.bin/cross-env NODE_ENV=production .\\node_modules\\.bin\\webpack --config build/webpack.server.config.js --progress --hide-modules"
