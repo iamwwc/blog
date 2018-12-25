@@ -5,6 +5,8 @@ const resolve = file => require('path').resolve(__dirname, file)
 const { createBundleRenderer } = require('vue-server-renderer')
 const isProd = process.env.NODE_ENV === 'production'
 
+console.log(`current node ${isProd ? 'production' : 'development'}`)
+
 function createRenderer(bundle, options) {
     return createBundleRenderer(bundle, Object.assign(options,{
         baseDir: resolve('./dist/'),
