@@ -8,6 +8,6 @@ before_install:
   - sudo apt-get -y install docker-ce
 
 script:
-  - docker build -t . ssr-server:${TRAVIS_BUILD_NUMBER}
+  - docker build . -t ssr-server:${TRAVIS_BUILD_NUMBER}
 after_script:
   - docker images
